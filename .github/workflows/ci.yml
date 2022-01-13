@@ -19,7 +19,12 @@ jobs:
         with:
           deno-version: vx.x.x
 
-      - run: deno fmt --check -c deno.jsonc
-      - run: deno lint -c deno.jsonc
+      - name: Check fmt & lint
+        shell: bash
+        run: |
+          if [ "${{ matrix.os }}" = "ubuntu-latest" ]; then
+            deno fmt --check -c deno.jsonc
+            deno lint -c deno.jsonc
+          fi
       - run: deno test --unstable --allow-read --coverage=./cov
       - run: deno coverage ./cov
