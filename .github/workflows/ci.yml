@@ -1,0 +1,25 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: vx.x.x
+
+      - run: deno fmt --check -c deno.jsonc
+      - run: deno lint -c deno.jsonc
+      - run: deno test --unstable --coverage=./cov
+      - run: deno coverage ./cov
