@@ -12,6 +12,8 @@ directory.
 
 This module needs `--allow-read` and `--allow-write` runtime flag of Deno.
 
+For snapshot updating, delete the snapshot file and regenerate it for now.
+
 ```ts
 // import from deno.land/x
 import { setupSnapshot } from 'https://deno.land/x/sunappu@<version>/mod.ts';

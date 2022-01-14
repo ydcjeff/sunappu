@@ -27,10 +27,13 @@ import * as fs from 'https://deno.land/std@0.121.0/fs/mod.ts';
  */
 export async function setupSnapshot(file: string) {
   file = path.fromFileUrl(path.normalize(file));
-  const fname = path.basename(file);
-  file = path.join(path.dirname(file), '__snapshots__', fname + '.txt');
+  file = path.join(
+    path.dirname(file),
+    '__snapshots__',
+    path.basename(file) + '.txt',
+  );
   await fs.ensureFile(file);
-  const exported = await import(file);
+  const exported = await import(path.toFileUrl(file).href);
 
   return (actual: unknown, name: string) => {
     name = name.trim().replace(/([^a-zA-Z])/g, '_');
