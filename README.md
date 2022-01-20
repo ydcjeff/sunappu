@@ -1,6 +1,7 @@
 # Sunappu (スナップ)
 
 [![ci](https://github.com/ydcjeff/sunappu/actions/workflows/ci.yml/badge.svg)](https://github.com/ydcjeff/sunappu/actions/workflows/ci.yml)
+[![deno module](https://shield.deno.dev/x/sunappu)](https://deno.land/x/sunappu)
 [![deno doc](https://doc.deno.land/badge.svg)](https://doc.deno.land/https://deno.land/x/sunappu/mod.ts)
 
 > Simple Snapshot Assertion in Deno using `JSON.stringify`
