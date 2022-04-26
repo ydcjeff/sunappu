@@ -1,3 +1,5 @@
+> # Deno now has https://deno.land/std/testing/snapshot.ts
+
 # Sunappu (スナップ)
 
 [![ci](https://github.com/ydcjeff/sunappu/actions/workflows/ci.yml/badge.svg)](https://github.com/ydcjeff/sunappu/actions/workflows/ci.yml)
